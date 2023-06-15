@@ -41,7 +41,8 @@ calyx.component @main(%go: i1 {go}, %clk: i1 {clk}, %reset: i1 {reset}) -> (%don
 
   calyx.control {
     calyx.seq {
-      //calyx.invoke @identity(@in=%c1_1)
+      calyx.invoke @id(%id.in = %c1_10) -> (i32)
+      calyx.invoke @id(%id.in = %c1_10, %id.go = %c1_1) -> (i32, i1) 
       calyx.enable @run_id
       calyx.enable @use_id
     }
